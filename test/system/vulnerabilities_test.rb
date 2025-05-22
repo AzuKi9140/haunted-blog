@@ -28,7 +28,6 @@ class VulnerabilitiesTest < ApplicationSystemTestCase
 
     assert_text 'Blog was successfully created.'
     assert_selector '.blog-post-title', text: '今日の出来事'
-    assert_selector '.blog-content', text: 'ボブと遊びました。'
-    assert_no_selector 'marquee'
+    assert_selector '.blog-content', text: '<MARQUEE>ボブと遊びました。</MARQUEE>'
   end
 end

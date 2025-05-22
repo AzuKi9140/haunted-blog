@@ -2,6 +2,6 @@
 
 module BlogsHelper
   def format_content(blog)
-    simple_format(blog.content, {}, sanitize: true)
+    safe_join(blog.content.split("\n"), tag.br)
   end
 end
