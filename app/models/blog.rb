@@ -9,6 +9,8 @@ class Blog < ApplicationRecord
 
   scope :published, -> { where('secret = FALSE') }
 
+  scope :viewable_by, ->(user) { where(secret: false).or(where(user:)) }
+
   scope :search, lambda { |term|
     return all if term.blank?
 
